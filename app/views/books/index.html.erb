@@ -1,3 +1,10 @@
+<h1>Books</h1>
+<% @books.each do |book| %>
+
+ <p>Title</p>
+ <span><%= book.title %></span>
+<% end %>
+
 <!--本の名前、内容、Showに飛ぶ、Editに飛ぶ、Destroyボタンの記述-->
 <h2>New book</h2>
 <%= form_with model: @book do |f| %>

@@ -1,12 +1,12 @@
 class BooksController < ApplicationController
-  def new
+  def new　#この記述いらない？？
   end
 
   def index
-    @book = Book.new
+    @books = Book.all
   end
 
-  def create#投稿の保存機能。今は/topに飛ぶようにしている
+  def create#投稿の保存機能。今は/topに飛ぶようにしているが詳細画面に飛ばすようにする
     book = Book.new(book_params)
     book.save
     redirect_to '/top'
