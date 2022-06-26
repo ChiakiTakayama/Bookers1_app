@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  def new　#この記述いらない？？
+  def new #この記述いらない？？
   end
 
   def index
@@ -13,6 +13,7 @@ class BooksController < ApplicationController
   end
 
   def show #詳細画面。投稿押したら飛んでくる画面
+    @book = Book.find(params[:id])
   end
 
   def edit
