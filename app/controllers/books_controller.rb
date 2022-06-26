@@ -18,7 +18,13 @@ class BooksController < ApplicationController
   end
 
   def edit
-    # @book = Book.find(params[:id])  showが正常に動いてない状態
+    @book = Book.find(params[:id])
+  end
+  
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to book_path(book.id)
   end
   # ここから先は保存機能と同時期に書いてる
   private
