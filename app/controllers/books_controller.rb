@@ -3,9 +3,10 @@ class BooksController < ApplicationController
   end
 
   def index
+    @book = Book.new
   end
 
-  def show
+  def show #詳細画面。投稿押したら飛んでくる画面
   end
 
   def edit
