@@ -7,10 +7,16 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
-  def create#投稿の保存機能。今は/topに飛ぶようにしているが詳細画面に飛ばすようにする
+  def create
     book = Book.new(book_params)
     book.save
     redirect_to book_path(book.id)
+    # @book = Book.new(book_params)
+    # if @book.save
+      # redirect_to book_path(@book.id)
+    # else
+      # render :index
+    # end  
   end
 
   def show #詳細画面。投稿押したら飛んでくる画面
@@ -25,6 +31,12 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     book.update(book_params)
     redirect_to book_path(book.id)
+  end
+  
+  def destroy #destroyしたらbooks一覧画面にリンクように
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to'/books'
   end
   # ここから先は保存機能と同時期に書いてる
   private
