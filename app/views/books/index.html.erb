@@ -1,19 +1,27 @@
+
 <h1>Books</h1>
 <% @books.each do |book| %><!--renderの処理でrenderの前に@lists = List.all-->
 
  <p>Title</p>
  <span>
-   <%= link_to book.title, book_path(book.id) %><!--"/bokks/#{book.id}"%>-->
+   <%= book.title %><!--"/bokks/#{book.id}"%>-->
  </span>
  <!--<span>< %= book.title %></span> =とbの間のスペースあり-->
  <p>Body</p>
  <span> <%= book.body %></span>
+ <span>
+ <%=link_to "Show", book_path(book.id) %>
+ </span>
+ <span>Edit</span>
+ <!--< %= link_to "Edit", edit_book_path(@book.id) %>-->
+ <span>Destroy</span>
+ <!--< %= link_to "Destroy", destroy_book_path(@book.id), method: :delete, "data-confirm" => "Are yuo sure？" %>-->
 
 <% end %>
 
 <!--本の名前、内容、Showに飛ぶ、Editに飛ぶ、Destroyボタンの記述-->
 <h2>New book</h2>
-<% if @book.errors.any? %><!--バリデーション実装でエラー発生-->
+<% if @book.errors.any? %>
   <%= @book.errors.count %>errors prohibited this book from being saved:
   <ul>
     <% @book.errors.full_messages.each do |message| %>
