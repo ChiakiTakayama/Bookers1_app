@@ -12,10 +12,11 @@
  <span>
  <%=link_to "Show", book_path(book.id) %>
  </span>
- <span>Edit</span>
- <!--< %= link_to "Edit", edit_book_path(@book.id) %>-->
- <span>Destroy</span>
- <!--< %= link_to "Destroy", destroy_book_path(@book.id), method: :delete, "data-confirm" => "Are yuo sure？" %>-->
+ <span>
+   <%= link_to "Edit", edit_book_path(book.id) %>
+ <span>
+   <%=  link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are yuo sure？" %>
+ </span>
 
 <% end %>
 

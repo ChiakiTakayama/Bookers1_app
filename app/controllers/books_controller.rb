@@ -19,6 +19,7 @@ class BooksController < ApplicationController
 
   def show #詳細画面。投稿押したら飛んでくる画面
     @book = Book.find(params[:id])
+    # redirect_to '/books'
   end
 
   def edit
