@@ -1,26 +1,36 @@
+<head>
+  <link rel="stylesheet" href="index_1.scss" />
+</head>
 <p id="notice"></p>
+<div class="page_top">
 <h1>Books</h1>
 <% @books.each do |book| %><!--renderの処理でrenderの前に@lists = List.all-->
+</div>
 
+<div class="book">
+  <div class="title-box">
+   <div class="book-title">Title</div>
+   <div class="book-title-body">Body</div>
+  </div>
+  <span>
+      <%= book.title %>
+    </span>
 
-  <p>Title</p>
- <span>
-   <%= book.title %><!--"/bokks/#{book.id}"%>-->
- </span>
- <!--<span>< %= book.title %></span> =とbの間のスペースあり-->
-   <p>Body</p>
- <span> <%= book.body %></span>
- <span>
- <%=link_to "Show", book_path(book.id) %>
- </span>
- <span>
-   <%= link_to "Edit", edit_book_path(book.id) %>
- <span>
-   <%=  link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are yuo sure？" %>
- </span>
+    <span>
+      <%= book.body %>
+    </span>
+    <span>
+      <%=link_to "Show", book_path(book.id) %>
+    </span>
+    <span>
+      <%= link_to "Edit", edit_book_path(book.id) %>
+    <span>
+      <%=  link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are yuo sure？" %>
+    </span>
 <% end %>
+</div>
 
-<!--本の名前、内容、Showに飛ぶ、Editに飛ぶ、Destroyボタンの記述-->
+<div class="New-book">
 <h2>New book</h2>
 <% if @book.errors.any? %>
   <%= @book.errors.count %>errors prohibited this book from being saved:
@@ -35,6 +45,8 @@
   <%= f.text_field :title %>
   <p>Body</p><!--検証では<label for="book_title">Body</label>-->
   <%= f.text_area :body %>
-
+ <div>
   <%= f.submit 'Create Book' %><!--送信ボタンはBodyの下に来ている-->
+ </div>
 <% end %>
+</div>

@@ -19,3 +19,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+header {
+  width: 90%;
+  padding: 15px 0;
+  margin: 33px auto 0;
+}
+
+.top_text {
+  width: 90%;
+  padding: 0;
+  margin: 33px;
+}
+
+.to_index {
+    width: 90%;
+  padding: 0;
+  margin: 33px;
+}
