@@ -9,10 +9,12 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    if @book.save#saveは新しいデータに対して有効。updateでは
-      redirect_to book_path(@book.id)
+    if @book.save#saveは新しいデータに対して有効。updateでは使えない
+       flash[:notice] = "投稿が完了しました。"
+       redirect_to book_path(@book.id)
     else
       @books = Book.all
+      flash.now[:alert] = "投稿が失敗しました。"
       render :index
     end  
   end
@@ -29,9 +31,11 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
+      flash[:notice] = "編集が完了しました。"
       redirect_to book_path(@book.id)
     else
-      render :edit #showに飛ばすと勘違いしてた
+      flash.now[:alert] = "編集が失敗しました。"
+      render :edit 
     end  
   end
   

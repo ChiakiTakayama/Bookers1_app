@@ -4,22 +4,18 @@
   box-sizing: border-box;
 }
 
-.page_top {
-  margin:30px;
-  padding: 15px;
-}
-
-.book {
+.book{
   margin:33px;
+  padding:0;
+  
 }
 
-// .title box {
-  // list-style: none;
-  // display: inline-block;
-  // margin: 0 20px;
-// } 考え中
+.title-box{
+  display: flex;
+  flex-wrap: wrap;
+}
 
-.New_book {
-  margin: 33px;
-  padding: 15px;
+.book_title {
+  width:50px;
+  height:30px;
 }

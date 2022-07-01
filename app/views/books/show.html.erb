@@ -1,12 +1,26 @@
-<p id="notice"></p>
-<p>
- <strong>Title:</strong>
- <%= @book.title %>
-</p>
+<head>
+  <link rel="stylesheet" href="show_1.scss" />
+</head>
 
-<p>
+<body>
+ <%= flash[:notice] %>
+ <p id="notice"></p>
+ <div class="title">
+  <p>
+   <strong>Title:</strong>
+    <%= @book.title %>
+  </p>
+ </div>
+
+<div class="body">
+ <p>
   <strong>Body:</strong>
-  <%= @book.body %>
-</p>
-<%= link_to "Edit", edit_book_path(@book.id) %>
-<%=link_to "Back", '/books' %>
+   <%= @book.body %>
+ </p>
+</div>
+
+<div class="link">
+ <%= link_to "Edit", edit_book_path(@book.id) %> |
+ <%= link_to "Back", '/books' %>
+</div>
+</body>

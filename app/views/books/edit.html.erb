@@ -1,4 +1,12 @@
+<head>
+  <link rel="stylesheet" href="show_1.scss" />
+</head>
+
+<body>
 <h2>Editing Book</h2>
+<%= flash[:alert] %>
+</p>
+
 <% if @book.errors.any? %>
   <%= @book.errors.count %>errors prohibited this book from being saved:
   <ul>
@@ -8,13 +16,13 @@
   </ul>
 <% end %>
 <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
-
 <div class="field">
-  <h4>Title</h4>
+  <p>Title</p>
   <%= f.text_field :title %>
 </div>
+
 <div class="field">
-  <h4>Body</h4>
+  <p>Body</p>
   <%= f.text_area :body %>
 </div>
 
@@ -22,6 +30,7 @@
 
 <% end %>
 
-<%=link_to "Show", book_path(@book.id) %>
+<%=link_to "Show", book_path(@book.id) %> |
 
 <%=link_to "Back", '/books' %>
+</body>

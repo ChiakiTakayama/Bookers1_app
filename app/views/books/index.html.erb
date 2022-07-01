@@ -1,6 +1,8 @@
 <head>
   <link rel="stylesheet" href="index_1.scss" />
 </head>
+
+<body>
 <p id="notice"></p>
 <div class="page_top">
 <h1>Books</h1>
@@ -32,6 +34,7 @@
 
 <div class="New-book">
 <h2>New book</h2>
+<%= flash[:alert] %>
 <% if @book.errors.any? %>
   <%= @book.errors.count %>errors prohibited this book from being saved:
   <ul>
@@ -50,3 +53,4 @@
  </div>
 <% end %>
 </div>
+</body>
