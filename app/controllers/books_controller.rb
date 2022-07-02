@@ -10,7 +10,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save#saveは新しいデータに対して有効。updateでは使えない
-       flash[:notice] = "投稿が完了しました。"
+       flash[:notice] = "Book was successfully created."
        redirect_to book_path(@book.id)
     else
       @books = Book.all
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      flash[:notice] = "編集が完了しました。"
+      flash[:notice] = "Book was successfully created."
       redirect_to book_path(@book.id)
     else
       flash.now[:alert] = "編集が失敗しました。"

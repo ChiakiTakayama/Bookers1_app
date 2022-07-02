@@ -1,20 +1,20 @@
 <head>
-  <link rel="stylesheet" href="index_1.scss" />
+  <!--<link rel="stylesheet" href="index_1.scss" />-->
 </head>
 
 <body>
 <p id="notice"></p>
-<div class="page_top">
 <h1>Books</h1>
-<% @books.each do |book| %><!--renderの処理でrenderの前に@lists = List.all-->
-</div>
-
-<div class="book">
-  <div class="title-box">
-   <div class="book-title">Title</div>
-   <div class="book-title-body">Body</div>
-  </div>
-  <span>
+<!--<table>-->
+<% @books.each do |book| %>
+<table>
+  <thead class="title-box">
+    <tr>
+     <th class="book-title">Title</th>
+     <th class="book-title-body">Body</th>
+   </tr>
+  </thead>
+    <span>
       <%= book.title %>
     </span>
 
@@ -30,7 +30,7 @@
       <%=  link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are yuo sure？" %>
     </span>
 <% end %>
-</div>
+</table>
 
 <div class="New-book">
 <h2>New book</h2>
