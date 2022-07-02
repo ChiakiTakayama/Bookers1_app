@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get'top' => 'homes#top'#resourcesメソッドに書き換える
   patch 'books/:id' => 'books#update', as: 'update_book'#resourcesメソッドで対応できない？
   delete 'books/:id' => 'books#destroy', as: 'destroy_book'#resourcesメソッドで対応できない？
+  root to: "homes#top"
   resources :books
 
 end
